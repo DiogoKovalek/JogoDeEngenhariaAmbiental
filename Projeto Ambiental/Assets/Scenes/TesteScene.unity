@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8318,6 +8317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barEnergyManager: {fileID: 1440233082}
+  pointsManager: {fileID: 1440233087}
   controlerGame: {fileID: 43085773}
   player: {fileID: 896875967}
 --- !u!4 &43085775
@@ -8335,6 +8335,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &51266874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7085042580446057129, guid: 317fef2c1ff76394db6136e6bdab9157, type: 3}
+  m_PrefabInstance: {fileID: 749502826988143631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &51266876 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5663935723534841136, guid: 317fef2c1ff76394db6136e6bdab9157, type: 3}
+  m_PrefabInstance: {fileID: 749502826988143631}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51266874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &114020172
 GameObject:
   m_ObjectHideFlags: 0
@@ -8759,12 +8775,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -8988,7 +9004,7 @@ GameObject:
   - component: {fileID: 896875969}
   - component: {fileID: 896875967}
   m_Layer: 0
-  m_Name: Truck
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16383,6 +16399,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75bae27b616ad1429a0cd273d8a2221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1440233087 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1852532903008551166, guid: 317fef2c1ff76394db6136e6bdab9157, type: 3}
+  m_PrefabInstance: {fileID: 749502826988143631}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e589ef9b01206e06abd28a2ae6420e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1737976541
 GameObject:
   m_ObjectHideFlags: 0
@@ -16758,6 +16785,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1852532903008551166, guid: 317fef2c1ff76394db6136e6bdab9157, type: 3}
+      propertyPath: textCamp
+      value: 
+      objectReference: {fileID: 51266876}
+    - target: {fileID: 1852532903008551166, guid: 317fef2c1ff76394db6136e6bdab9157, type: 3}
+      propertyPath: textCampGUI
+      value: 
+      objectReference: {fileID: 51266874}
     - target: {fileID: 4963280420697648270, guid: 317fef2c1ff76394db6136e6bdab9157, type: 3}
       propertyPath: m_Pivot.x
       value: 0

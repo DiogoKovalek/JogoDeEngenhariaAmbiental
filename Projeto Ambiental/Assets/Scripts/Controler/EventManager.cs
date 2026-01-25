@@ -10,6 +10,7 @@ public class EventManager : MonoBehaviour
     ===========================================================================================
     */
     [SerializeField] BarEnergyManager barEnergyManager;
+    [SerializeField] PointsTextManager pointsManager;
     [SerializeField] ControlerGame controlerGame;
     [SerializeField]Player player;
 
@@ -19,5 +20,6 @@ public class EventManager : MonoBehaviour
         player.IncrementedPoint += controlerGame.OnIncrementedPointInGame;
 
         controlerGame.UpdatedBar += barEnergyManager.OnUpdateBarEnergy;
+        controlerGame.UpdatedPoints += pointsManager.OnUpdatePointsText;
     }
 }

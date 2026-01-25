@@ -15,7 +15,6 @@ public class BarEnergyManager : MonoBehaviour
     [SerializeField] private RectTransform iconEnergy;
     [SerializeField] private RectTransform contentEnergy;
     private float[] posYBetween = {0, 420};
- 
     
     public void OnUpdateBarEnergy(float percent) {
         float pos = posYBetween[0] + (posYBetween[1] - posYBetween[0])*((100 - percent)/100);

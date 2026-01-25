@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class ControlerGame : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class ControlerGame : MonoBehaviour
     //Events ================================================================
     public delegate void UpdatedBarEnergy(float percentBar);
     public event UpdatedBarEnergy UpdatedBar;
+    public delegate void UpdartedPointsText(int points);
+    public event UpdartedPointsText UpdatedPoints;
     //=======================================================================
 
     void Start() {
@@ -52,5 +55,6 @@ public class ControlerGame : MonoBehaviour
     }
     public void OnIncrementedPointInGame(int value) {
         points += value;
+        UpdatedPoints(points);
     }
 }
