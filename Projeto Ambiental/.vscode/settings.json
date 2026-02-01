@@ -1,3 +1,5 @@
 {
-    "dotnet.preferCSharpExtension": true
+    "dotnet.preferCSharpExtension": true,
+    "dotnetAcquisitionExtension.useSystemDotnet": true,
+    "dotnetAcquisitionExtension.disableAutomaticDownload": true
 }
