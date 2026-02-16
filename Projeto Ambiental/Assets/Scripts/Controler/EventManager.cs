@@ -10,16 +10,22 @@ public class EventManager : MonoBehaviour
     ===========================================================================================
     */
     [SerializeField] BarEnergyManager barEnergyManager;
+    [SerializeField] CountBoxesTextManager countBoxesTextManager;
     [SerializeField] PointsTextManager pointsManager;
     [SerializeField] ControlerGame controlerGame;
-    [SerializeField]Player player;
+    [SerializeField] ControlerBoxes controlerBoxes;
+    [SerializeField] ControlerEnergy controlerEnergy;
+    [SerializeField] Player player;
 
-    void Start() {
-        player.IncrementedEnergy += controlerGame.OnIncrementEnergyInGame;
-        player.IncrementedCoin += controlerGame.OnIncrementedCoinInGame;
-        player.IncrementedPoint += controlerGame.OnIncrementedPointInGame;
+    void Awake() {
+        player.UpdatedEnergy += controlerEnergy.OnUpdatedEnergyInGame;
+        player.UpdatedCoin += controlerGame.OnUpdatedCoinInGame;
+        player.UpdatedPoint += controlerGame.OnUpdatedPointInGame;
+        player.UpdatedBoxes += controlerBoxes.OnUpdateBoxesCollect;
 
-        controlerGame.UpdatedBar += barEnergyManager.OnUpdateBarEnergy;
+        //Controler
         controlerGame.UpdatedPoints += pointsManager.OnUpdatePointsText;
+        controlerEnergy.UpdatedBar += barEnergyManager.OnUpdateBarEnergy;
+        controlerBoxes.UpdatedBox += countBoxesTextManager.OnUpdateBoxesInfo;
     }
 }

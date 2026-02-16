@@ -6,6 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class ControlerMenuPrincipal : MonoBehaviour
 {
+    /*
+    ===========================================================
+    ControlerMenuPrincipal tem o objetivo De controlar as acoes
+    do menu pricipal
+
+    -> BTPlay() acao do botao play
+
+    -> BTOptions() acao do botao options
+
+    -> BTExit() acao do botao exit
+    ===========================================================
+    */
     [SerializeField] String scenePlay;
     public void BTPlay() {
         SceneManager.LoadScene(scenePlay);

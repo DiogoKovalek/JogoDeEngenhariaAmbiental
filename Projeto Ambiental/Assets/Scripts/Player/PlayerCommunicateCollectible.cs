@@ -12,18 +12,18 @@ public class PlayerCommunicateCollectible : MonoBehaviour
     haverão metodos aqui para cada tipo de coletavel e como ele irá se
     comportar
 
-    -> AddCoin(int value) Incrementa a quantidade de moedas
-    -> AddPoint(int value) Incrementa a quantidade de pontos
+    -> UpdCoin(int value) Incrementa ou decrementa a quantidade de moedas
+    -> UpdPoint(int value) Incrementa ou decrementa a quantidade de pontoss
     =======================================================================
     */
     private Player player;
     void Start() {
         player = GetComponent<Player>();
     }
-    public void AddCoin(int value) {
-        player.AddCoinInControler(value);
+    public void UpdCoin(int value) {
+        player.UpdCoinInControler(value);
     }
-    public void AddPoint(int value) {
-        player.AddPointInControler(value);
+    public void UpdPoint(int value) {
+        player.UpdPointInControler(value);
     }
 }

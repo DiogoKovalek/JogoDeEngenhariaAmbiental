@@ -13,7 +13,7 @@ public class Coin : MonoBehaviour, ICollectible {
     [SerializeField] private int valueCoin = 1;
     [SerializeField] private int valuePoint = 100;
     public void communicateWithPlayer(PlayerCommunicateCollectible playerCC) {
-        playerCC.AddCoin(valueCoin);
-        playerCC.AddPoint(valuePoint);
+        playerCC.UpdCoin(valueCoin);
+        playerCC.UpdPoint(valuePoint);
     }
 }
