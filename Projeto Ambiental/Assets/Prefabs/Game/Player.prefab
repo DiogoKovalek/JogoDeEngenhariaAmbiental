@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2644283598477598711}
   - component: {fileID: 2119056786100215432}
-  - component: {fileID: 5037535845288843972}
+  - component: {fileID: 6880824869276516770}
   - component: {fileID: 1674338673166575703}
   - component: {fileID: 8449275320712533109}
   - component: {fileID: 2329048754029243789}
   - component: {fileID: 8870374251597266248}
+  - component: {fileID: 1236594939567102896}
   - component: {fileID: 4635432027524929436}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -77,9 +78,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 1795622833
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
   m_FlipX: 0
@@ -91,8 +92,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5037535845288843972
-BoxCollider2D:
+--- !u!58 &6880824869276516770
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -124,18 +125,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!50 &1674338673166575703
 Rigidbody2D:
   serializedVersion: 4
@@ -199,6 +190,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3754bbdff63029f48b91f6f2d0e10284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1236594939567102896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4585748097846857216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3926ec8b728e5824fb9812848ffe75ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handForItem: {fileID: 785687004739401271}
 --- !u!114 &4635432027524929436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +217,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   valueEnergyInTruck: 0
   maxValueEnergyInTruck: 50
-  handForBox: {fileID: 785687004739401271}
 --- !u!1 &4930505321323920291
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 785687004739401271}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HandForBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

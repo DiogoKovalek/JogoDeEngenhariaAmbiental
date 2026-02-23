@@ -1355,7 +1355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c588ca18526b5b91a162447f37c43ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenePlay: TesteScene
+  scenePlay: W0Lf
 --- !u!4 &1842489266
 Transform:
   m_ObjectHideFlags: 0

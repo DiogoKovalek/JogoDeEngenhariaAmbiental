@@ -26,4 +26,7 @@ public class PlayerCommunicateCollectible : MonoBehaviour
     public void UpdPoint(int value) {
         player.UpdPointInControler(value);
     }
+    public void UpdEnergy(int value) {
+        player.UpdEnergyInClontroler(value);
+    }
 }

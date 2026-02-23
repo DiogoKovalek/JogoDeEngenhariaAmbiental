@@ -62,5 +62,6 @@ public class PlayerManageItem : MonoBehaviour
 }
 public enum TypeItem {
     NONE,
-    BOX
+    BOX,
+    TRASH
 }

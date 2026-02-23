@@ -45,6 +45,7 @@ public class ControlerGame : MonoBehaviour
     }
     public void OnUpdatedPointInGame(int value) {
         points += value;
+        if(points < 0) points = 0;
         if(UpdatedPoints != null) UpdatedPoints(points);
     }
     #endregion

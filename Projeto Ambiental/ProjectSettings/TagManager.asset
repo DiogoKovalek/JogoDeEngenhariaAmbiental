@@ -8,14 +8,14 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - MapLimit
   - Water
   - UI
   - Interactives
   - Collectible
   - Item
-  - 
-  - 
+  - Enemy
+  - Player
   - 
   - 
   - 
@@ -40,4 +40,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 201420069
+    locked: 0
+  - name: Foreground
+    uniqueID: 1795622833
     locked: 0
