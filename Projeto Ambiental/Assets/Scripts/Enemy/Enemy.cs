@@ -15,10 +15,17 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float speed;
     [SerializeField] private int damage;
+    private Animator anim;
+    void Start() {
+        anim = GetComponent<Animator>();
+    }
     public float GetSpeed() {
         return speed;
     }
     public int GetDamage() {
         return damage;
+    }
+    public Animator GetAnimator() {
+        return anim;
     }
 }

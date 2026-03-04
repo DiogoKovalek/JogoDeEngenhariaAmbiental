@@ -13,6 +13,7 @@ public class InteractiveDepositeBox : MonoBehaviour, IInteractive {
         PlayerManageItem playerIM = player.GetPlayerManageItem();
         if (playerIM.GetTypeItem() == TypeItem.BOX) {
             playerIM.DepositItem();
+            this.gameObject.SetActive(false);
         }
     }
 }

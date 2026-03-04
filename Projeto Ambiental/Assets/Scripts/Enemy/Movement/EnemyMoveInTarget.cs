@@ -15,9 +15,25 @@ public class EnemyMoveInTarget : MonoBehaviour
 
     private Vector2 target;
     private float speed;
+    private Animator anim;
 
     void Start() {
-        speed = GetComponent<Enemy>().GetSpeed();
+        Enemy enemy = GetComponent<Enemy>();
+        speed = enemy.GetSpeed();
+        anim = enemy.GetAnimator();
+        initAnimation();
+    }
+
+    void OnEnable() {
+        initAnimation();
+    }
+
+    private void initAnimation() {
+        if(anim != null) {
+            Vector2 diretion = (target - (Vector2) transform.position).normalized;
+            anim.SetFloat("MoveX", diretion.x);
+            anim.SetFloat("MoveY", diretion.y);
+        }
     }
 
     void Update() {

@@ -18,9 +18,9 @@ public class ControlerMenuPrincipal : MonoBehaviour
     -> BTExit() acao do botao exit
     ===========================================================
     */
-    [SerializeField] String scenePlay;
     public void BTPlay() {
-        SceneManager.LoadScene(scenePlay);
+        ManagerAtributes.ResetAtributesForGame();
+        ManagerScenes.SceneToLevel(1);
     }
     public void BTOptions(){
         Debug.Log("Options");

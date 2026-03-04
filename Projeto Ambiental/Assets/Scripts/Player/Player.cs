@@ -30,8 +30,10 @@ public class Player : MonoBehaviour {
     public int valueEnergyInTruck = 0;
     public int maxValueEnergyInTruck = 50;
     private SpriteRenderer sprRen;
+    private Animator anim;
 
     private bool isInvunerable = false;
+    private bool isEndGame = false;
     private float timeForInvunerable = 0.5f;
     private float timeForTradeAlpha = 0.05f;
     private Color cor;
@@ -44,6 +46,8 @@ public class Player : MonoBehaviour {
     public event UpdatedPointInGame UpdatedPoint;
     public delegate void UpdatedBoxesCollect(byte value);
     public event UpdatedBoxesCollect UpdatedBoxes;
+    public delegate void PlayedSfx(SFXSound sound);
+    public event PlayedSfx PlayedSFX;
     //================================================================
 
     //Scripts ========================================================
@@ -60,6 +64,7 @@ public class Player : MonoBehaviour {
         playerManageItem = GetComponent<PlayerManageItem>();
 
         sprRen = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         cor = sprRen.color;
     }
     public void AddEnergyInTruck(int value) {
@@ -75,7 +80,7 @@ public class Player : MonoBehaviour {
 
     # region Damage
     public void TakeDamage(int damage, float speedForce = 0, Vector2 direction = default) {
-        if (!isInvunerable) {
+        if (!isInvunerable && !isEndGame) {
             UpdEnergyInClontroler(-damage);
             //Piscar player
             StartCoroutine(Invunerable());
@@ -117,6 +122,22 @@ public class Player : MonoBehaviour {
     public void UpdBoxesInControler(byte value) {
         if(UpdatedBoxes != null) UpdatedBoxes(value);
     }
+    public void PlaySFX(SFXSound sound) {
+        if(PlayedSFX != null) PlayedSFX(sound);
+    }
+    #endregion
+
+    #region Events
+    public void OnPlayerLost() {
+        // Animacao de perder
+
+        isEndGame = true;
+    }
+    public void OnPlayerWin() {
+        // Animacao de Ganhar
+
+        isEndGame = true;
+    }
     #endregion
 
     #region GetComponests
@@ -131,6 +152,12 @@ public class Player : MonoBehaviour {
     }
     public PlayerManageItem GetPlayerManageItem() {
         return playerManageItem;
+    }
+    public Animator GetAnimator() {
+        return anim;
+    }
+    public SpriteRenderer GetSpriteRenderer() {
+        return sprRen;
     }
     #endregion
 }

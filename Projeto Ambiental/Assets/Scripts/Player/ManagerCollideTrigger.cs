@@ -37,6 +37,7 @@ public class ManagerCollideTriggers : MonoBehaviour
         }
         if(collision.gameObject.layer == layerCollectible) { // Collectable
             collision.GetComponent<ICollectible>().communicateWithPlayer(playerCC);
+            if(collision.transform.CompareTag("Coin")) player.PlaySFX(SFXSound.COIN);
             Destroy(collision.gameObject);
         }
         if(collision.gameObject.layer == layerItem) { // Item

@@ -12,9 +12,11 @@ public class EventManager : MonoBehaviour
     [SerializeField] BarEnergyManager barEnergyManager;
     [SerializeField] CountBoxesTextManager countBoxesTextManager;
     [SerializeField] PointsTextManager pointsManager;
+    [SerializeField] LevelInfoManager levelInfoManager;
     [SerializeField] ControlerGame controlerGame;
     [SerializeField] ControlerBoxes controlerBoxes;
     [SerializeField] ControlerEnergy controlerEnergy;
+    [SerializeField] ControlerSFX controlerSFX;
     [SerializeField] Player player;
 
     void Awake() {
@@ -22,9 +24,15 @@ public class EventManager : MonoBehaviour
         player.UpdatedCoin += controlerGame.OnUpdatedCoinInGame;
         player.UpdatedPoint += controlerGame.OnUpdatedPointInGame;
         player.UpdatedBoxes += controlerBoxes.OnUpdateBoxesCollect;
+        player.PlayedSFX += controlerSFX.OnPlaySFX;
 
         //Controler
         controlerGame.UpdatedPoints += pointsManager.OnUpdatePointsText;
+        controlerGame.StartedGameS += levelInfoManager.OnStartGameScreen;
+        controlerGame.ShowedGameOverS += levelInfoManager.OnShowGameOverScreen;
+        controlerGame.ShowedLevelCompleteS += levelInfoManager.OnShowLevelCompleteScreen;
+        controlerGame.PlayerLosted += player.OnPlayerLost;
+        controlerGame.PlayerWon += player.OnPlayerWin;
         controlerEnergy.UpdatedBar += barEnergyManager.OnUpdateBarEnergy;
         controlerBoxes.UpdatedBox += countBoxesTextManager.OnUpdateBoxesInfo;
     }
