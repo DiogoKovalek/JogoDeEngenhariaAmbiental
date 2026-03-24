@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class MovePlayer : MonoBehaviour
-{
+public class MovePlayer : MonoBehaviour {
     /*
     =====================================================================
     Move Player tem como finalidade fazer a movimentação do player
@@ -17,22 +17,35 @@ public class MovePlayer : MonoBehaviour
     private Player player;
     private Rigidbody2D rb;
     private Animator anim;
-    private Vector2 directionAnimation = Vector2.zero;
     private Vector2 boost;
     private float forceMultiplier = 10f;
     private Coroutine corrotineReduceBoost;
     private Vector2 vectorMovement;
+    private float distPoint = 0;
+    private static readonly float[] speedVariation = {0.0f, 2.0f, 3.5f, 5.0f, 6.5f};
+    private static readonly float[] distanceVariation = {0.3f, 1.3f, 2.3f, 3.3f};
+
+    [SerializeField] private InputMode inputMode = InputMode.Mobile;
+    private System.Action currentInput;
     void Awake() {
         player = GetComponent<Player>();
         input = ManagerInputs.inputPlayer;
         rb = GetComponent<Rigidbody2D>();
     }
     void Start() {
-        anim = player.GetAnimator();       
+        anim = player.GetAnimator();
+
+        if (inputMode == InputMode.Mobile) {
+            currentInput = mobileInput;
+        }
+        else if (inputMode == InputMode.Keyboard) {
+            currentInput = keyboardInput;
+        }
     }
-    void Update()
-    {
-        moveInput = input.Game.Move.ReadValue<Vector2>();
+
+    void Update() {
+        currentInput?.Invoke();
+
         anim.SetFloat("MoveX", moveInput.x);
         anim.SetFloat("MoveY", moveInput.y);
         anim.SetFloat("Speed", moveInput.magnitude);
@@ -43,15 +56,66 @@ public class MovePlayer : MonoBehaviour
     }
     public void ApplyBoost(float force, Vector2 direction) {
         boost = force * forceMultiplier * direction;
-        if(corrotineReduceBoost == null) corrotineReduceBoost = StartCoroutine(reduceBoost());
+        if (corrotineReduceBoost == null) corrotineReduceBoost = StartCoroutine(reduceBoost());
     }
     private IEnumerator reduceBoost() {
-        while (boost.magnitude > 0.01f){
+        while (boost.magnitude > 0.01f) {
             yield return new WaitForFixedUpdate();
-            boost = Vector2.Lerp(boost, Vector2.zero, 10f*Time.fixedDeltaTime);
+            boost = Vector2.Lerp(boost, Vector2.zero, 10f * Time.fixedDeltaTime);
         }
         boost = Vector2.zero;
         corrotineReduceBoost = null;
-        
     }
+
+    void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, distanceVariation[0]);
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(transform.position, distanceVariation[1]);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, distanceVariation[2]);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, distanceVariation[3]);
+
+    }
+    private void OnClick() {
+        Vector2 screenPos = input.Game.Position.ReadValue<Vector2>();
+        screenPos = (Vector2)Camera.main.ScreenToWorldPoint(screenPos);
+        distPoint = Vector2.Distance(screenPos, (Vector2)transform.position);
+        moveInput = (screenPos - (Vector2)transform.position).normalized;
+
+        Debug.Log(distPoint);
+        if (distPoint >= distanceVariation[3]) {
+            speed = speedVariation[4];
+        }
+        else if (distPoint >= distanceVariation[2]) {
+            speed = speedVariation[3];
+        }
+        else if (distPoint >= distanceVariation[1]) {
+            speed = speedVariation[2];
+        }
+        else if (distPoint >= distanceVariation[0]) {
+            speed = speedVariation[1];
+        }
+        else {
+            speed = speedVariation[0];
+        }
+    }
+    private void mobileInput() {
+        if (input.Game.Click.IsPressed()) {
+            OnClick();
+        }
+        else {
+            moveInput = Vector2.zero;
+        }
+    }
+
+    private void keyboardInput() {
+        moveInput = input.Game.Move.ReadValue<Vector2>();
+    }
+}
+
+enum InputMode {
+    Mobile,
+    Keyboard
 }

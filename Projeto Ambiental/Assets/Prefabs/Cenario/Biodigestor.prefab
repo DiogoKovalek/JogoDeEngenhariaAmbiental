@@ -27,11 +27,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4912287636263636650}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5630411528591785112}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3686203971538690794
@@ -142,3 +143,90 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1001 &9196833391261025330
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3496365157880489772}
+    m_Modifications:
+    - target: {fileID: 386721445664810722, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+      propertyPath: produceEnergy
+      value: 
+      objectReference: {fileID: 5390704640570395236}
+    - target: {fileID: 478228854175235668, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+      propertyPath: m_Name
+      value: InteractiveBiodigestor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567565906008258730, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567565906008258730, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567565906008258730, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567565906008258730, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567565906008258730, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567565906008258730, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567565906008258730, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567565906008258730, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567565906008258730, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567565906008258730, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 478228854175235668, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5390704640570395236}
+  m_SourcePrefab: {fileID: 100100000, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+--- !u!4 &5630411528591785112 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3567565906008258730, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+  m_PrefabInstance: {fileID: 9196833391261025330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8719731553093319270 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 478228854175235668, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+  m_PrefabInstance: {fileID: 9196833391261025330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5390704640570395236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8719731553093319270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa0722293e5cd7489951d90453cdd5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isProducingEnergy: 0

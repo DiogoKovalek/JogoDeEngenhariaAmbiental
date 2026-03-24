@@ -46,3 +46,9 @@ public class ItemBehaviour : MonoBehaviour
     }
 
 }
+
+public enum TypeItem {
+    NONE,
+    BOX,
+    TRASH
+}

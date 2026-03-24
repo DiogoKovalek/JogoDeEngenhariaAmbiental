@@ -15,8 +15,8 @@ public class ControlerEnergy : MonoBehaviour
     energia que estava no player ao jogo
     =========================================================================
     */
-    private int energy = 60;
-    private int maxEnergy = 60;
+    private int energy = 600;
+    private int maxEnergy = 600;
     private int energyLostForSecond = 1;
     private Coroutine timerLostEnergy;
 
