@@ -44,8 +44,6 @@ public class Player : MonoBehaviour {
     public event UpdatedCoinInGame UpdatedCoin;
     public delegate void UpdatedPointInGame(int value);
     public event UpdatedPointInGame UpdatedPoint;
-    public delegate void UpdatedBoxesCollect(byte value);
-    public event UpdatedBoxesCollect UpdatedBoxes;
     public delegate void PlayedSfx(SFXSound sound);
     public event PlayedSfx PlayedSFX;
     //================================================================
@@ -118,9 +116,6 @@ public class Player : MonoBehaviour {
     }
     public void UpdPointInControler(int value) {
         if(UpdatedPoint != null) UpdatedPoint(value);
-    }
-    public void UpdBoxesInControler(byte value) {
-        if(UpdatedBoxes != null) UpdatedBoxes(value);
     }
     public void PlaySFX(SFXSound sound) {
         if(PlayedSFX != null) PlayedSFX(sound);

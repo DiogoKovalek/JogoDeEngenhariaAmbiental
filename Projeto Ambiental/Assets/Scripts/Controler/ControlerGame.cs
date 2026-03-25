@@ -51,12 +51,10 @@ public class ControlerGame : MonoBehaviour
     //=======================================================================
 
     //Scripts ===============================================================
-    private ControlerBoxes controlerBoxes;
     private ControlerEnergy controlerEnergy;
     //=======================================================================
 
     void Awake() {
-        controlerBoxes = GetComponent<ControlerBoxes>();
         controlerEnergy = GetComponent<ControlerEnergy>();
 
         //Classes staticas
@@ -64,7 +62,6 @@ public class ControlerGame : MonoBehaviour
     }
     IEnumerator Start() {
         ManagerInputs.DesactiveALLInput();
-        controlerBoxes.CountBoxes();
         howMuchCollectibleInLevel();
         StartedGameS(ManagerAtributes.level.ToString(), timeForStartGame);
         yield return new WaitForSeconds(timeForStartGame);
@@ -131,9 +128,6 @@ public class ControlerGame : MonoBehaviour
     #endregion
 
     #region Gets Components
-    public ControlerBoxes GetControlerBoxes() {
-        return controlerBoxes;
-    }
     public ControlerEnergy GetControlerEnergy() {
         return controlerEnergy;
     }

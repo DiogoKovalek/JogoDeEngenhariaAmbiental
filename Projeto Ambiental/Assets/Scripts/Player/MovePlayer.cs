@@ -22,8 +22,8 @@ public class MovePlayer : MonoBehaviour {
     private Coroutine corrotineReduceBoost;
     private Vector2 vectorMovement;
     private float distPoint = 0;
-    private static readonly float[] speedVariation = {0.0f, 2.0f, 3.5f, 5.0f, 6.5f};
-    private static readonly float[] distanceVariation = {0.3f, 1.3f, 2.3f, 3.3f};
+    private static readonly float[] speedVariation = {0.0f, 3.5f, 7f};
+    private static readonly float[] distanceVariation = {0.3f, 2.3f};
 
     [SerializeField] private InputMode inputMode = InputMode.Mobile;
     private System.Action currentInput;
@@ -70,13 +70,8 @@ public class MovePlayer : MonoBehaviour {
     void OnDrawGizmos() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, distanceVariation[0]);
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawWireSphere(transform.position, distanceVariation[1]);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, distanceVariation[2]);
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, distanceVariation[3]);
-
+        Gizmos.DrawWireSphere(transform.position, distanceVariation[1]);
     }
     private void OnClick() {
         Vector2 screenPos = input.Game.Position.ReadValue<Vector2>();
@@ -84,14 +79,7 @@ public class MovePlayer : MonoBehaviour {
         distPoint = Vector2.Distance(screenPos, (Vector2)transform.position);
         moveInput = (screenPos - (Vector2)transform.position).normalized;
 
-        Debug.Log(distPoint);
-        if (distPoint >= distanceVariation[3]) {
-            speed = speedVariation[4];
-        }
-        else if (distPoint >= distanceVariation[2]) {
-            speed = speedVariation[3];
-        }
-        else if (distPoint >= distanceVariation[1]) {
+        if (distPoint >= distanceVariation[1]) {
             speed = speedVariation[2];
         }
         else if (distPoint >= distanceVariation[0]) {

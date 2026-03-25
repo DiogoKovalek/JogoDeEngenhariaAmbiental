@@ -42,7 +42,6 @@ public class PlayerManageItem : MonoBehaviour
     public void DepositItem() {
         if(item != null) {
             //Por Enquanto e so um
-            player.UpdBoxesInControler(1);
             Destroy(item.gameObject);
             resetItem();
         }

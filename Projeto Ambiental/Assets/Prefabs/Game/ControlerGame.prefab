@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 791709254991689655}
   - component: {fileID: 8363110307270688104}
-  - component: {fileID: 6944568620791234516}
   - component: {fileID: 931381033420687346}
   - component: {fileID: 2697635494678618277}
   - component: {fileID: 3908905388359009917}
@@ -55,23 +54,10 @@ MonoBehaviour:
   pointsManager: {fileID: 0}
   levelInfoManager: {fileID: 0}
   controlerGame: {fileID: 2697635494678618277}
-  controlerBoxes: {fileID: 6944568620791234516}
+  controlerBoxes: {fileID: 0}
   controlerEnergy: {fileID: 931381033420687346}
   controlerSFX: {fileID: 3908905388359009917}
   player: {fileID: 0}
---- !u!114 &6944568620791234516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4495976894578108626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c228e097ec6b05c46a450c65af28d16b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listBoxes: {fileID: 0}
 --- !u!114 &931381033420687346
 MonoBehaviour:
   m_ObjectHideFlags: 0
