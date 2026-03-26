@@ -1424,6 +1424,7 @@ GameObject:
   - component: {fileID: 2763304172607996711}
   - component: {fileID: 1852532903008551166}
   - component: {fileID: 6056119856121362043}
+  - component: {fileID: 6534199900250736722}
   m_Layer: 5
   m_Name: CanvasGame
   m_TagString: Untagged
@@ -1557,6 +1558,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackScreen: {fileID: 2881588200964966717}
   text: {fileID: 4818501434244683250}
+--- !u!114 &6534199900250736722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6385644120080710908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad149ab238d9c2f42a99f0194da544f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textCamp: {fileID: 4943627164288213386}
 --- !u!1 &6747337893242396365
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,7 +2097,7 @@ GameObject:
   - component: {fileID: 6491755009546277056}
   - component: {fileID: 4943627164288213386}
   m_Layer: 5
-  m_Name: PointsText
+  m_Name: TimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

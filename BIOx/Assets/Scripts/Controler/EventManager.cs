@@ -11,9 +11,11 @@ public class EventManager : MonoBehaviour
     */
     [SerializeField] BarEnergyManager barEnergyManager;
     [SerializeField] PointsTextManager pointsManager;
+    [SerializeField] StopwatchManager stopwatchManager;
     [SerializeField] LevelInfoManager levelInfoManager;
     [SerializeField] ControlerGame controlerGame;
     [SerializeField] ControlerEnergy controlerEnergy;
+    [SerializeField] ControlerTimerGame controlerTimerGame;
     [SerializeField] ControlerSFX controlerSFX;
     [SerializeField] Player player;
 
@@ -31,5 +33,6 @@ public class EventManager : MonoBehaviour
         controlerGame.PlayerLosted += player.OnPlayerLost;
         controlerGame.PlayerWon += player.OnPlayerWin;
         controlerEnergy.UpdatedBar += barEnergyManager.OnUpdateBarEnergy;
+        controlerTimerGame.UpdatedStopwatch += stopwatchManager.OnUpdateStopwatch;
     }
 }

@@ -52,11 +52,12 @@ public class ControlerGame : MonoBehaviour
 
     //Scripts ===============================================================
     private ControlerEnergy controlerEnergy;
+    private ControlerTimerGame controlerTime;
     //=======================================================================
 
     void Awake() {
         controlerEnergy = GetComponent<ControlerEnergy>();
-
+        controlerTime = GetComponent<ControlerTimerGame>();
         //Classes staticas
 
     }
@@ -64,10 +65,12 @@ public class ControlerGame : MonoBehaviour
         ManagerInputs.DesactiveALLInput();
         howMuchCollectibleInLevel();
         StartedGameS(ManagerAtributes.level.ToString(), timeForStartGame);
+        controlerTime.initializeTime();
         yield return new WaitForSeconds(timeForStartGame);
         ManagerInputs.ActiveALLInput();
+        controlerTime.StartTimer();
+        //controlerEnergy.StartTimerLostEnergy();
 
-        controlerEnergy.StartTimerLostEnergy();
     }
 
     #region Status Level
