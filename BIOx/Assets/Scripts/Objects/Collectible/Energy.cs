@@ -10,11 +10,8 @@ public class Energy : MonoBehaviour, ICollectible
     adicionar ou remover pontos
     =======================================================
     */
-
-    [SerializeField] private int valueEnergy;
     [SerializeField] private int valuePoints;
     public void communicateWithPlayer(PlayerCommunicateCollectible playerCC) {
-            playerCC.UpdEnergy(valueEnergy);
             playerCC.UpdPoint(valuePoints);
     }
 }

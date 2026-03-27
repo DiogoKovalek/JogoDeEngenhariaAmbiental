@@ -20,13 +20,7 @@ public class PlayerCommunicateCollectible : MonoBehaviour
     void Start() {
         player = GetComponent<Player>();
     }
-    public void UpdCoin(int value) {
-        player.UpdCoinInControler(value);
-    }
     public void UpdPoint(int value) {
         player.UpdPointInControler(value);
-    }
-    public void UpdEnergy(int value) {
-        player.UpdEnergyInClontroler(value);
     }
 }

@@ -22,7 +22,6 @@ public class ControlerGame : MonoBehaviour
     ========================================================================
     */
     private int points = 0;
-    private int coins = 0;
     private int collectibleInLevel = 0;
     private int multiplicadorDeBonus = 150;
 
@@ -51,14 +50,11 @@ public class ControlerGame : MonoBehaviour
     //=======================================================================
 
     //Scripts ===============================================================
-    private ControlerEnergy controlerEnergy;
     private ControlerTimerGame controlerTime;
     //=======================================================================
 
     void Awake() {
-        controlerEnergy = GetComponent<ControlerEnergy>();
         controlerTime = GetComponent<ControlerTimerGame>();
-        //Classes staticas
 
     }
     IEnumerator Start() {
@@ -69,7 +65,6 @@ public class ControlerGame : MonoBehaviour
         yield return new WaitForSeconds(timeForStartGame);
         ManagerInputs.ActiveALLInput();
         controlerTime.StartTimer();
-        //controlerEnergy.StartTimerLostEnergy();
 
     }
 
@@ -77,7 +72,6 @@ public class ControlerGame : MonoBehaviour
     
     public void GameOver() {
         ShowedGameOverS();
-        controlerEnergy.StopTimerLostEnergy();
         ManagerInputs.DesactiveALLInput();
         PlayerLosted();
 
@@ -85,7 +79,6 @@ public class ControlerGame : MonoBehaviour
     }
     public void LevelComplete() {
         ShowedLevelCompleteS();
-        controlerEnergy.StopTimerLostEnergy();
         ManagerInputs.DesactiveALLInput();
         PlayerWon();
 
@@ -120,9 +113,6 @@ public class ControlerGame : MonoBehaviour
     #endregion
 
     #region Events
-    public void OnUpdatedCoinInGame(int value) {
-        coins += value;
-    }
     public void OnUpdatedPointInGame(int value) {
         points += value;
         if(points < 0) points = 0;
@@ -131,8 +121,8 @@ public class ControlerGame : MonoBehaviour
     #endregion
 
     #region Gets Components
-    public ControlerEnergy GetControlerEnergy() {
-        return controlerEnergy;
+    public ControlerTimerGame GetControlerTimerGame(){
+        return controlerTime;
     }
     #endregion
 }

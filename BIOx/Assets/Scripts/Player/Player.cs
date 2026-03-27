@@ -27,8 +27,6 @@ public class Player : MonoBehaviour {
     -> Geters de todos os components
     =================================================================================
     */
-    public int valueEnergyInTruck = 0;
-    public int maxValueEnergyInTruck = 50;
     private SpriteRenderer sprRen;
     private Animator anim;
 
@@ -38,10 +36,6 @@ public class Player : MonoBehaviour {
     private float timeForTradeAlpha = 0.05f;
     private Color cor;
     //Events =========================================================
-    public delegate void UpdatedEnergyInGame(int value);
-    public event UpdatedEnergyInGame UpdatedEnergy;
-    public delegate void UpdatedCoinInGame(int value);
-    public event UpdatedCoinInGame UpdatedCoin;
     public delegate void UpdatedPointInGame(int value);
     public event UpdatedPointInGame UpdatedPoint;
     public delegate void PlayedSfx(SFXSound sound);
@@ -65,21 +59,10 @@ public class Player : MonoBehaviour {
         anim = GetComponent<Animator>();
         cor = sprRen.color;
     }
-    public void AddEnergyInTruck(int value) {
-        if (valueEnergyInTruck != maxValueEnergyInTruck) {
-            valueEnergyInTruck += value;
-            if(valueEnergyInTruck > maxValueEnergyInTruck) valueEnergyInTruck = maxValueEnergyInTruck;
-        }
-    }
-    public void EmptyEnergy() {
-        UpdEnergyInClontroler(valueEnergyInTruck);
-        valueEnergyInTruck = 0;
-    }
 
     # region Damage
     public void TakeDamage(int damage, float speedForce = 0, Vector2 direction = default) {
         if (!isInvunerable && !isEndGame) {
-            UpdEnergyInClontroler(-damage);
             //Piscar player
             StartCoroutine(Invunerable());
             if(direction != Vector2.zero) { //Recuo e Drop de item
@@ -108,12 +91,6 @@ public class Player : MonoBehaviour {
     }
     #endregion
     #region For Controler
-    public void UpdEnergyInClontroler(int value) {
-        if(UpdatedEnergy != null) UpdatedEnergy(value);
-    }
-    public void UpdCoinInControler(int value) {
-        if(UpdatedCoin != null) UpdatedCoin(value);
-    }
     public void UpdPointInControler(int value) {
         if(UpdatedPoint != null) UpdatedPoint(value);
     }

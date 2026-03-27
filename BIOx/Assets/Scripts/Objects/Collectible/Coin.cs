@@ -9,11 +9,8 @@ public class Coin : MonoBehaviour, ICollectible {
     jogador
     ========================================================================
     */
-
-    [SerializeField] private int valueCoin = 1;
     [SerializeField] private int valuePoint = 100;
     public void communicateWithPlayer(PlayerCommunicateCollectible playerCC) {
-        playerCC.UpdCoin(valueCoin);
         playerCC.UpdPoint(valuePoint);
     }
 }

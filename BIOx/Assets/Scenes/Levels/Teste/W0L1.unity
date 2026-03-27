@@ -7530,9 +7530,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1812505597}
     - target: {fileID: 8363110307270688104, guid: 606c70dd233664fa1adcc2ddd997aac2, type: 3}
+      propertyPath: stopwatchManager
+      value: 
+      objectReference: {fileID: 1975525455}
+    - target: {fileID: 8363110307270688104, guid: 606c70dd233664fa1adcc2ddd997aac2, type: 3}
       propertyPath: countBoxesTextManager
       value: 
-      objectReference: {fileID: 1812505592}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7756,17 +7760,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a75bae27b616ad1429a0cd273d8a2221, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1812505592 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4976262175053536164, guid: 317fef2c1ff76394db6136e6bdab9157, type: 3}
-  m_PrefabInstance: {fileID: 284187396}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fc8c6fcc1420144c87f92ceb48a41dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1812505597 stripped
@@ -10061,6 +10054,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 352816114181882066, guid: 06a08364e230cff4d9ccc61496fd8d7b, type: 3}
   m_PrefabInstance: {fileID: 1146588296}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1975525455 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6534199900250736722, guid: 317fef2c1ff76394db6136e6bdab9157, type: 3}
+  m_PrefabInstance: {fileID: 284187396}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad149ab238d9c2f42a99f0194da544f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1975768394
 PrefabInstance:
   m_ObjectHideFlags: 0
