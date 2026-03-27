@@ -9,15 +9,38 @@ public class EventManager : MonoBehaviour
     EventManager Tem a função de controlar todos os evento do jogo
     ===========================================================================================
     */
-    [SerializeField] PointsTextManager pointsManager;
-    [SerializeField] StopwatchManager stopwatchManager;
-    [SerializeField] LevelInfoManager levelInfoManager;
-    [SerializeField] ControlerGame controlerGame;
-    [SerializeField] ControlerTimerGame controlerTimerGame;
-    [SerializeField] ControlerSFX controlerSFX;
-    [SerializeField] Player player;
+    [SerializeField] private Player player;
+    [SerializeField] private GameObject UI;
+
+    private PointsTextManager pointsManager;
+    private StopwatchManager stopwatchManager;
+    private LevelInfoManager levelInfoManager;
+    private ControlerGame controlerGame;
+    private ControlerTimerGame controlerTimerGame;
+    private ControlerSFX controlerSFX;
 
     void Awake() {
+        //Player
+        if(player == null){
+            player = FindObjectOfType<Player>()?.GetComponent<Player>();
+        }
+
+        // Controler
+        controlerGame = GetComponent<ControlerGame>();
+        controlerTimerGame = GetComponent<ControlerTimerGame>();
+        controlerSFX = GetComponentInChildren<ControlerSFX>();
+
+        if(UI == null){
+            UI = GameObject.Find("Canvas");
+        }
+        pointsManager = UI.GetComponent<PointsTextManager>();
+        stopwatchManager = UI.GetComponent<StopwatchManager>();
+        levelInfoManager = UI.GetComponent<LevelInfoManager>();
+        
+        startEvents();
+    }
+
+    private void startEvents(){
         player.UpdatedPoint += controlerGame.OnUpdatedPointInGame;
         player.PlayedSFX += controlerSFX.OnPlaySFX;
 
