@@ -23,6 +23,7 @@ public class ManagerCollideTriggers : MonoBehaviour
     private int layerCollectible = 7;
     private int layerItem = 8;
     private int layerEnemy = 9;
+    private int layerGoalSign = 11;
     void Awake() {
         player = GetComponent<Player>();  
         circleCollision = GetComponent<CircleCollider2D>();
@@ -35,18 +36,21 @@ public class ManagerCollideTriggers : MonoBehaviour
         if(collision.gameObject.layer == layerInteractive) { // Interactive
             collision?.GetComponent<IInteractive>().Interactive(player);
         }
-        if(collision.gameObject.layer == layerCollectible) { // Collectable
+        else if(collision.gameObject.layer == layerCollectible) { // Collectable
             collision.GetComponent<ICollectible>().communicateWithPlayer(playerCC);
             if(collision.transform.CompareTag("Coin")) player.PlaySFX(SFXSound.COIN);
             Destroy(collision.gameObject);
         }
-        if(collision.gameObject.layer == layerItem) { // Item
+        else if(collision.gameObject.layer == layerItem) { // Item
             if(playerMI.CheckIfIsLoadingItem() == false) { 
                 collision.GetComponent<ItemBehaviour>().GetThisItem(playerMI);
             }
         }
-        if(collision.gameObject.layer == layerEnemy) { // Enemy
+        else if(collision.gameObject.layer == layerEnemy) { // Enemy
             collideEnemy(collision);
+        }
+        else if(collision.gameObject.layer == layerGoalSign){ //Goal Sign
+            player.ToachGoalSign();
         }
     }
     private void collideEnemy(Collider2D collision) {

@@ -25,8 +25,10 @@ public class MovePlayer : MonoBehaviour
     private Coroutine corrotineReduceBoost;
     private Vector2 vectorMovement;
     private float distPoint = 0;
-    private static readonly float[] speedVariation = { 0.0f, 3.5f, 7f };
+    private static readonly float[] speedVariation = { 0.0f, 3f, 12f };
     private static readonly float[] distanceVariation = { 0.3f, 2.3f };
+    private static readonly float variationSpeed = 10f;
+    private static readonly float speedForSmoke = speedVariation[1] + 4;
 
     [SerializeField] private InputMode inputMode = InputMode.Mobile;
     private System.Action currentInput;
@@ -98,25 +100,30 @@ public class MovePlayer : MonoBehaviour
 
         if (distPoint >= distanceVariation[1])
         {
-            speed = speedVariation[2];
+            //speed = speedVariation[2];
+            speed = Mathf.MoveTowards(speed, speedVariation[2], variationSpeed*Time.deltaTime);
         }
         else if (distPoint >= distanceVariation[0])
         {
-            speed = speedVariation[1];
+            //speed = speedVariation[1];
+            speed = Mathf.MoveTowards(speed, speedVariation[1], variationSpeed*Time.deltaTime);
         }
         else
         {
             speed = speedVariation[0];
+            //speed = Mathf.MoveTowards(speed, speedVariation[0], variationSpeed*Time.deltaTime);
         }
 
-        if (speed > speedVariation[1] && !playerParticle.IsSmokeRun())
+        if (speed > speedForSmoke && !playerParticle.IsSmokeRun())
         {
             playerParticle.StartSmoke();
         }
-        else if (speed <= speedVariation[1] && playerParticle.IsSmokeRun())
+        else if (speed <= speedForSmoke && playerParticle.IsSmokeRun())
         {
             playerParticle.StopSmoke();
         }
+
+        Debug.Log("Speed = " + speed);
     }
     private void mobileInput()
     {
@@ -126,7 +133,8 @@ public class MovePlayer : MonoBehaviour
         }
         else
         {
-            moveInput = Vector2.zero;
+            //moveInput = Vector2.zero;
+            speed = Mathf.MoveTowards(speed, speedVariation[0], (variationSpeed + 8)*Time.deltaTime);
             if (playerParticle.IsSmokeRun()) playerParticle.StopSmoke();
         }
     }

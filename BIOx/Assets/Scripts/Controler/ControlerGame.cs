@@ -118,6 +118,9 @@ public class ControlerGame : MonoBehaviour
         if(points < 0) points = 0;
         if(UpdatedPoints != null) UpdatedPoints(points);
     }
+    public void OnToachedInGoalSign(){
+        LevelComplete();
+    }
     #endregion
 
     #region Gets Components

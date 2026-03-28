@@ -40,6 +40,8 @@ public class Player : MonoBehaviour {
     public event UpdatedPointInGame UpdatedPoint;
     public delegate void PlayedSfx(SFXSound sound);
     public event PlayedSfx PlayedSFX;
+    public delegate void ToachedInGoalSign();
+    public event ToachedInGoalSign ToachedGoalSign;
     //================================================================
 
     //Scripts ========================================================
@@ -95,6 +97,9 @@ public class Player : MonoBehaviour {
     #region For Controler
     public void UpdPointInControler(int value) {
         if(UpdatedPoint != null) UpdatedPoint(value);
+    }
+    public void ToachGoalSign(){
+        if(ToachedGoalSign != null) ToachedGoalSign(); 
     }
     public void PlaySFX(SFXSound sound) {
         if(PlayedSFX != null) PlayedSFX(sound);

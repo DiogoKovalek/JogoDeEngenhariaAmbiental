@@ -21,11 +21,6 @@ public class PlayerParticleManager : MonoBehaviour
     }
     public void UpdateSmokeDirection(Vector2 BIOxDirection)
     {
-        /*
-        Vector2 dir = - BIOxDirection;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        particleSmoke.transform.rotation = Quaternion.Euler(0,0,angle+270);
-        */
         particleSmoke.transform.up = - BIOxDirection;
     }
 
