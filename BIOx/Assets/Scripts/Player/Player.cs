@@ -47,6 +47,7 @@ public class Player : MonoBehaviour {
     private MovePlayer movePlayer;
     private PlayerCommunicateCollectible playerCommunicateCollectible;
     private PlayerManageItem playerManageItem;
+    private PlayerParticleManager playerParticle;
     //================================================================
 
     void Awake() {
@@ -54,6 +55,7 @@ public class Player : MonoBehaviour {
         movePlayer = GetComponent<MovePlayer>();
         playerCommunicateCollectible = GetComponent<PlayerCommunicateCollectible>();
         playerManageItem = GetComponent<PlayerManageItem>();
+        playerParticle = GetComponent<PlayerParticleManager>();
 
         sprRen = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -124,6 +126,9 @@ public class Player : MonoBehaviour {
     }
     public PlayerManageItem GetPlayerManageItem() {
         return playerManageItem;
+    }
+    public PlayerParticleManager GetManageSmoke(){
+        return playerParticle;
     }
     public Animator GetAnimator() {
         return anim;
