@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 999a010709024d847b6da70a67496180
+guid: 8e27b9179a1ceba45a6a56dff881748c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - generator: {instanceID: 0}
-  - etDB: {fileID: 11400000, guid: 505bddeb22723154092b06267a98009c, type: 2}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
