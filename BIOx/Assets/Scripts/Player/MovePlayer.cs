@@ -122,8 +122,6 @@ public class MovePlayer : MonoBehaviour
         {
             playerParticle.StopSmoke();
         }
-
-        Debug.Log("Speed = " + speed);
     }
     private void mobileInput()
     {

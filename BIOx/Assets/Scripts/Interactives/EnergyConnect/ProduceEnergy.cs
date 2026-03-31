@@ -23,7 +23,7 @@ public class ProduceEnergy : MonoBehaviour {
     }
     private void changeStats() {
         foreach (var item in listReceivesEnergy) {
-            item.ChangeStats(ref isProducingEnergy);
+            item.ChangeStats(isProducingEnergy);
         }
     }
 }

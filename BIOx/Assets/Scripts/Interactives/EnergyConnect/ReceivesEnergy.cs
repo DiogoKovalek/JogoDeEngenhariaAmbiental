@@ -12,7 +12,7 @@ public class ReceivesEnergy : MonoBehaviour
         generator.StartConnection(this);
     }
 
-    public void ChangeStats(ref bool isHaveEnergy) {
+    public void ChangeStats(bool isHaveEnergy) {
         this.isHaveEnergy = isHaveEnergy;
         if(isHaveEnergy) deciveON();
         else deciveOFF();
