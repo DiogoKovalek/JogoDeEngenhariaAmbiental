@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Coin
+  - GoalSign
+  - Bridge
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - Item
   - Enemy
   - Player
-  - GoalSign
-  - Prop
+  - PlayerDetect
+  - Obstacle
   - 
   - 
   - 

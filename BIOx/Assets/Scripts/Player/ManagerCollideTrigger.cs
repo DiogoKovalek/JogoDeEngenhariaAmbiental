@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,11 +20,17 @@ public class ManagerCollideTriggers : MonoBehaviour
 
     private CircleCollider2D circleCollision;
 
-    private int layerInteractive = 6;
-    private int layerCollectible = 7;
-    private int layerItem = 8;
-    private int layerEnemy = 9;
-    private int layerGoalSign = 11;
+    //Layers
+    private const int layerWater = 4;
+    private const int layerInteractive = 6;
+    private const int layerCollectible = 7;
+    private const int layerItem = 8;
+    private const int layerEnemy = 9;
+    private const int layerPlayer = 10;
+
+    //Tag
+    private const String tagGoalSign = "GoalSign";
+    private const String tagBridge = "Bridge";
     void Awake() {
         player = GetComponent<Player>();  
         circleCollision = GetComponent<CircleCollider2D>();
@@ -49,10 +56,21 @@ public class ManagerCollideTriggers : MonoBehaviour
         else if(collision.gameObject.layer == layerEnemy) { // Enemy
             collideEnemy(collision);
         }
-        else if(collision.gameObject.layer == layerGoalSign){ //Goal Sign
+        else if(collision.CompareTag(tagGoalSign)){ //Goal Sign
             player.ToachGoalSign();
+        }else if (collision.CompareTag(tagBridge)){
+            Debug.Log("Ponte");
+            Physics2D.IgnoreLayerCollision(layerPlayer, layerWater, true);
         }
     }
+    
+    void OnTriggerExit2D(Collider2D collision){
+        if (collision.CompareTag(tagBridge)){
+            Debug.Log("Saiu da ponte");
+            Physics2D.IgnoreLayerCollision(layerPlayer, layerWater, false);
+        }
+    }
+    
     private void collideEnemy(Collider2D collision) {
         Enemy enemy = collision.GetComponent<Enemy>();
         Vector2 diretion = (transform.position - collision.gameObject.transform.position).normalized;

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e27b9179a1ceba45a6a56dff881748c, type: 3}
+  m_Name: DatabaseTilePowerCable
+  m_EditorClassIdentifier: 
+  size: 11
+  tilesOn:
+  - {fileID: 11400000, guid: 38bb60a301388594099166f2648f1ec0, type: 2}
+  - {fileID: 11400000, guid: 6e5ff7f64cbecc34eb9a47ffea2b1a78, type: 2}
+  - {fileID: 11400000, guid: 38cda07588c736e45b58fe642db8c5bc, type: 2}
+  - {fileID: 11400000, guid: d060f10f4f01ef04e8ae2bb509e81dcc, type: 2}
+  - {fileID: 11400000, guid: 0b4a7ed419ea9e745aaddd1913e82f57, type: 2}
+  - {fileID: 11400000, guid: 6c91e1399c94f48409e2291f6f1d25ba, type: 2}
+  - {fileID: 11400000, guid: df90adde9bb1cf647a283a7ae9e86b5d, type: 2}
+  - {fileID: 11400000, guid: ed9400a0dd8ee9e4bba77840b75e14f5, type: 2}
+  - {fileID: 11400000, guid: ac643a706ed457341bace88ea9cf4a27, type: 2}
+  - {fileID: 11400000, guid: f1e9ca75e89ecb949a7901120b8f4bf7, type: 2}
+  - {fileID: 11400000, guid: b62eab7413a701544a7fd06c98d7204a, type: 2}
+  tilesOff:
+  - {fileID: 11400000, guid: 3a8fac1015e581148aa6a9742ff7a89d, type: 2}
+  - {fileID: 11400000, guid: 609297828dd0c62479e17b3b679320d1, type: 2}
+  - {fileID: 11400000, guid: f598a5f62fa05eb45b780f78764c67b5, type: 2}
+  - {fileID: 11400000, guid: d2f08823fe8bbd746805fc7e3aa6753d, type: 2}
+  - {fileID: 11400000, guid: 5c3f5fa2535e41e4680db4647c222ec1, type: 2}
+  - {fileID: 11400000, guid: 14ee0ae5b04e7c3478b45fb098b9289c, type: 2}
+  - {fileID: 11400000, guid: 3d358875bf6669b429429ae884eae6f5, type: 2}
+  - {fileID: 11400000, guid: 8592db21489b8154489d0b216874a514, type: 2}
+  - {fileID: 11400000, guid: 8b7931f7c6765f341b81face487b057f, type: 2}
+  - {fileID: 11400000, guid: 425a6b177f531574f9ad781342c4b306, type: 2}
+  - {fileID: 11400000, guid: bcf0ecb341b5cd740be4a7afd2013d02, type: 2}
