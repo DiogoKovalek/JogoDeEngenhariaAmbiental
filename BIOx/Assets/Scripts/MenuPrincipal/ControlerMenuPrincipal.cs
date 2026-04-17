@@ -18,12 +18,24 @@ public class ControlerMenuPrincipal : MonoBehaviour
     -> BTExit() acao do botao exit
     ===========================================================
     */
+    [Header("Canvas")]
+    [SerializeField] private GameObject MenuOptions;
+    [SerializeField] private GameObject ButtonOpenOptions;
+    [SerializeField] private GameObject ButtonStartGame;
     public void BTPlay() {
         ManagerAtributes.ResetAtributesForGame();
         ManagerScenes.SceneToLevel(1);
+        Debug.Log("Play");
     }
-    public void BTOptions(){
-        Debug.Log("Options");
+    public void BTOpenOptions(){
+        MenuOptions.SetActive(true);
+        ButtonOpenOptions.SetActive(false);
+        ButtonStartGame.SetActive(false);
+    }
+    public void BTExitOptions(){
+        MenuOptions.SetActive(false);
+        ButtonOpenOptions.SetActive(true);
+        ButtonStartGame.SetActive(true);
     }
     public void BTExit() {
         Debug.Log("Sair Do Jogo");
