@@ -24,7 +24,7 @@ public static class ManagerAtributes
     public static int cacheBonusPoint = 0;
     // In Save
     public static int[] pointsPlacar = new int[10];
-    public static String[] namePlaar = new string[10];
+    public static String[] namePlcar = new string[10];
 
     public static void ResetAtributesForGame() {
         points = 0;
