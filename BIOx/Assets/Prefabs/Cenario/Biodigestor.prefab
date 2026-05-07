@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3686203971538690794}
   - component: {fileID: 5262356105915635572}
   - component: {fileID: 3880236491984375588}
+  - component: {fileID: 8603189239065848695}
   m_Layer: 12
   m_Name: Biodigestor
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1795622833
-  m_SortingLayer: 2
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -557757962, guid: bdaa4aed81c9c784781ce7f590600f0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -143,6 +144,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8603189239065848695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4912287636263636650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa0722293e5cd7489951d90453cdd5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isProducingEnergy: 0
 --- !u!1001 &9196833391261025330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -154,7 +168,7 @@ PrefabInstance:
     - target: {fileID: 386721445664810722, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
       propertyPath: produceEnergy
       value: 
-      objectReference: {fileID: 5390704640570395236}
+      objectReference: {fileID: 8603189239065848695}
     - target: {fileID: 478228854175235668, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
       propertyPath: m_Name
       value: InteractiveBiodigestor
@@ -202,31 +216,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 478228854175235668, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5390704640570395236}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
 --- !u!4 &5630411528591785112 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3567565906008258730, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
   m_PrefabInstance: {fileID: 9196833391261025330}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8719731553093319270 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 478228854175235668, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
-  m_PrefabInstance: {fileID: 9196833391261025330}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5390704640570395236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8719731553093319270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aa0722293e5cd7489951d90453cdd5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isProducingEnergy: 0

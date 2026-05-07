@@ -44,9 +44,27 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
+  - name: Ground
     uniqueID: 201420069
+    locked: 0
+  - name: Grass
+    uniqueID: 2173540643
+    locked: 0
+  - name: Water
+    uniqueID: 3575887539
+    locked: 0
+  - name: WalkInFront
+    uniqueID: 1709625973
+    locked: 0
+  - name: Collision
+    uniqueID: 3019466335
     locked: 0
   - name: Foreground
     uniqueID: 1795622833
+    locked: 0
+  - name: WalkInBehind
+    uniqueID: 4129774333
+    locked: 0
+  - name: Decor
+    uniqueID: 1202937719
     locked: 0

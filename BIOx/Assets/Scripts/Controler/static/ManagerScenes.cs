@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public static class ManagerScenes
 {
-    private static String[] SceneLevels = {"W0L1", "W0L2", "W0L3"};
+    private static String[] SceneLevels = {"W1L1", "W1L2", "W1L3","W1L4", "W1L5"};
     private static String SceneMenuInicial = "MenuInicial";
     private static String SceneLoadScreen = "LoadScreen";
     private static String SceneGameOver = "GameOverScreen";

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8998042243986633211}
   - component: {fileID: 5517773145475283196}
   - component: {fileID: 8708706223678499618}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CaixaDeCorreio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,8 +30,7 @@ Transform:
   m_LocalPosition: {x: 3.2089767, y: 2.4217348, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3505636805153086324}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5517773145475283196
@@ -73,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1795622833
-  m_SortingLayer: 2
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 1219577438, guid: bcf5bc909a07dcc408c046261c4c6d74, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -121,73 +120,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.01}
   serializedVersion: 2
   m_Radius: 0.12
---- !u!1001 &3977185681014237768
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 8998042243986633211}
-    m_Modifications:
-    - target: {fileID: 546988720141693244, guid: 902ee824cb7b1f243a26e8ee519d2e57, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 546988720141693244, guid: 902ee824cb7b1f243a26e8ee519d2e57, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 546988720141693244, guid: 902ee824cb7b1f243a26e8ee519d2e57, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 546988720141693244, guid: 902ee824cb7b1f243a26e8ee519d2e57, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 546988720141693244, guid: 902ee824cb7b1f243a26e8ee519d2e57, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 546988720141693244, guid: 902ee824cb7b1f243a26e8ee519d2e57, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 546988720141693244, guid: 902ee824cb7b1f243a26e8ee519d2e57, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 546988720141693244, guid: 902ee824cb7b1f243a26e8ee519d2e57, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 546988720141693244, guid: 902ee824cb7b1f243a26e8ee519d2e57, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 546988720141693244, guid: 902ee824cb7b1f243a26e8ee519d2e57, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3058931132139375298, guid: 902ee824cb7b1f243a26e8ee519d2e57, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3058931132139375298, guid: 902ee824cb7b1f243a26e8ee519d2e57, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 201420069
-      objectReference: {fileID: 0}
-    - target: {fileID: 8818919273222099229, guid: 902ee824cb7b1f243a26e8ee519d2e57, type: 3}
-      propertyPath: m_Name
-      value: InteractiveDepositeBox
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 902ee824cb7b1f243a26e8ee519d2e57, type: 3}
---- !u!4 &3505636805153086324 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 546988720141693244, guid: 902ee824cb7b1f243a26e8ee519d2e57, type: 3}
-  m_PrefabInstance: {fileID: 3977185681014237768}
-  m_PrefabAsset: {fileID: 0}
