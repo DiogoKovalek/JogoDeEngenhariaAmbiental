@@ -22,11 +22,14 @@ EditorBuildSettings:
     guid: 6e7a60696a1b82d49a19cd28902383bb
   - enabled: 1
     path: Assets/Scenes/Levels/W1L3.unity
-    guid: ae3fa63a9a4096648b5ffa89f9d1d725
-  - enabled: 1
+    guid: b1a11ab2922b0ca46b0d4681a84e9ff8
+  - enabled: 0
     path: Assets/Scenes/Levels/W1L4.unity
     guid: 4e31d4a8064d7354480cd7e0f72952e9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/W1L5.unity
     guid: 66c56c8759ef38740a63c22bc0b38033
+  - enabled: 0
+    path: Assets/Scenes/Levels/W1L6.unity
+    guid: ae3fa63a9a4096648b5ffa89f9d1d725
   m_configObjects: {}
