@@ -43,6 +43,7 @@ public class EventManager : MonoBehaviour
     private void startEvents(){
         player.UpdatedPoint += controlerGame.OnUpdatedPointInGame;
         player.ToachedGoalSign += controlerGame.OnToachedInGoalSign;
+        player.playerLostedAllLife += controlerGame.OnPlayerLostAllLifes;
         player.PlayedSFX += controlerSFX.OnPlaySFX;
 
         //Controler

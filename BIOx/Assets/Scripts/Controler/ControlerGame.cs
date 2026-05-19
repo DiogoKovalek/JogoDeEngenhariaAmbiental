@@ -121,6 +121,9 @@ public class ControlerGame : MonoBehaviour
     public void OnToachedInGoalSign(){
         LevelComplete();
     }
+    public void OnPlayerLostAllLifes() {
+        GameOver();
+    }
     #endregion
 
     #region Gets Components

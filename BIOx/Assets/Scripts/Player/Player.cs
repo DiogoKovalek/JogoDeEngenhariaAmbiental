@@ -32,9 +32,11 @@ public class Player : MonoBehaviour {
 
     private bool isInvunerable = false;
     private bool isEndGame = false;
-    private float timeForInvunerable = 0.5f;
-    private float timeForTradeAlpha = 0.05f;
+    private float timeForDestroy = 1.0f;
+    private float timeForTradeAlpha = 0.1f;
     private Color cor;
+    
+    private Vector2 initialPos;
     //Events =========================================================
     public delegate void UpdatedPointInGame(int value);
     public event UpdatedPointInGame UpdatedPoint;
@@ -42,6 +44,8 @@ public class Player : MonoBehaviour {
     public event PlayedSfx PlayedSFX;
     public delegate void ToachedInGoalSign();
     public event ToachedInGoalSign ToachedGoalSign;
+    public delegate void PlayerLostedAllLifes();
+    public event PlayerLostedAllLifes playerLostedAllLife;
     //================================================================
 
     //Scripts ========================================================
@@ -50,6 +54,7 @@ public class Player : MonoBehaviour {
     private PlayerCommunicateCollectible playerCommunicateCollectible;
     private PlayerManageItem playerManageItem;
     private PlayerParticleManager playerParticle;
+
     //================================================================
 
     void Awake() {
@@ -62,26 +67,32 @@ public class Player : MonoBehaviour {
         sprRen = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         cor = sprRen.color;
+        initialPos = this.transform.position;
     }
 
     # region Damage
     public void TakeDamage(int damage, float speedForce = 0, Vector2 direction = default) {
         if (!isInvunerable && !isEndGame) {
-            //Piscar player
-            StartCoroutine(Invunerable());
-            if(direction != Vector2.zero) { //Recuo e Drop de item
-                movePlayer.ApplyBoost(speedForce, direction);
-                playerManageItem.DropItem();
-            }
+            StartCoroutine(takeDamageCorrotine(speedForce, direction));
         }
         
     }
-    private IEnumerator Invunerable() {
-        isInvunerable = true;
+    private IEnumerator takeDamageCorrotine(float speedForce = 0, Vector2 direction = default) {
+        ManagerInputs.DesactiveALLInput();
+
+        if(direction != default) movePlayer.ApplyBoost(speedForce, direction);
         StartCoroutine(blinkWhileInvunerable());
-        yield return new WaitForSeconds(timeForInvunerable);
-        isInvunerable = false;
-        managerCollideTriggers.DetectedEnemyBeforeInvunerable();
+        playerParticle.startDamage();
+        isInvunerable = true;
+        ManagerAtributes.life -= 1;
+        yield return new WaitForSeconds(timeForDestroy);
+        if(ManagerAtributes.life < 0) {
+            playerLostedAllLife();
+        }else{
+            isInvunerable = false;
+            transform.position = initialPos;
+        }
+        ManagerInputs.ActiveALLInput();
     }
     private IEnumerator blinkWhileInvunerable() {
         cor.a = cor.a == 0.3f ? 1.0f : 0.3f;

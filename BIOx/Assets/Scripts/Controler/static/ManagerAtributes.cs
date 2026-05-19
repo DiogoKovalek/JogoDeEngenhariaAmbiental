@@ -17,7 +17,7 @@ public static class ManagerAtributes
     // In Game
     public static int points = 0;
     public static int level = 1;
-
+    public static int life = 3;
     
     // In Level
     public static int cachePoints = 0;
@@ -29,6 +29,7 @@ public static class ManagerAtributes
     public static void ResetAtributesForGame() {
         points = 0;
         level = 1;
+        life = 3;
         ResetCaheAtributes();
     }
 
