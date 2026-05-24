@@ -7,6 +7,9 @@ public class EletronicGate : ReceivesEnergy
     [SerializeField] private Transform gate;
     [SerializeField] private Transform pointOn;
 
+    private Animator animMotor;
+    private Animator animGate;
+
     private Vector2 positionOff;
     private Vector2 positionOn;
 
@@ -14,6 +17,8 @@ public class EletronicGate : ReceivesEnergy
     private float speedMovement = 2.0f;
 
     void Start() {
+        animMotor = GetComponent<Animator>();
+        animGate = gate.gameObject.GetComponent<Animator>();
         positionOff = gate.position;
         positionOn = pointOn.position;
     }
@@ -30,7 +35,8 @@ public class EletronicGate : ReceivesEnergy
     }
     protected override void deciveON() {
         base.deciveON();
-
+        animMotor.SetBool("IsOpening", true);
+        animGate.SetBool("IsOpening", true);
         if(coroutine == null) {
             coroutine = StartCoroutine(GateToPoint(positionOn));
         }
@@ -46,6 +52,8 @@ public class EletronicGate : ReceivesEnergy
 
             yield return null;
         }
+        animMotor.SetBool("IsOpening", false);
+        animGate.SetBool("IsOpening", false);
         gate.position = destino;
         coroutine = null;
     }

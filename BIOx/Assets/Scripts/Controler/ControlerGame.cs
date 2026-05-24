@@ -23,10 +23,11 @@ public class ControlerGame : MonoBehaviour
     */
     private int points = 0;
     private int collectibleInLevel = 0;
-    private int multiplicadorDeBonus = 150;
 
     private float timeForStartGame = 2f;
     private float timeForTradeScene = 4f;
+
+    private bool endLevel = false; // evitar perder vida quando ja esta morto
 
 
     [SerializeField] private GameObject listCollectibleForBonus;
@@ -35,18 +36,26 @@ public class ControlerGame : MonoBehaviour
     
     public delegate void UpdartedPointsText(int points);
     public event UpdartedPointsText UpdatedPoints;
+    public delegate void UpdatedTextLife();
+    public event UpdatedTextLife UpdatedLife;
     public delegate void StartedGameScreen(String level, float timeShowText);
     public event StartedGameScreen StartedGameS;
     public delegate void ShowedGameOverScreen();
     public event ShowedGameOverScreen ShowedGameOverS;
+    public delegate void ShowedTimeOverScreen();
+    public event ShowedTimeOverScreen ShowedTimeOverS;
     public delegate void ShowedLevelCompleteScreen();
     public event ShowedLevelCompleteScreen ShowedLevelCompleteS;
+    public delegate void ResetedActionLerp();
+    public event ResetedActionLerp ResetedActionInInfoScreen;
 
     //Para o player
     public delegate void PlayerLostedTheGame();
     public event PlayerLostedTheGame PlayerLosted;
     public delegate void PlayerWonTheGame();
     public event PlayerWonTheGame PlayerWon;
+    public delegate void PlayerLostTime();
+    public event PlayerLostTime PlayerTimed;
     //=======================================================================
 
     //Scripts ===============================================================
@@ -58,6 +67,7 @@ public class ControlerGame : MonoBehaviour
 
     }
     IEnumerator Start() {
+        UpdatedLife();
         ManagerInputs.DesactiveALLInput();
         howMuchCollectibleInLevel();
         StartedGameS(ManagerAtributes.level.ToString(), timeForStartGame);
@@ -71,14 +81,26 @@ public class ControlerGame : MonoBehaviour
     #region Status Level
     
     public void GameOver() {
+        endLevel = true;
         ShowedGameOverS();
         ManagerInputs.DesactiveALLInput();
         PlayerLosted();
 
         StartCoroutine(TradeScene("GameOver"));
     }
+    public void TimeOver() {
+        ShowedTimeOverS();
+        ManagerInputs.DesactiveALLInput();
+        PlayerTimed();
+        if(!endLevel) ManagerAtributes.life--;
+        UpdatedLife();
+
+        StartCoroutine(TradeScene("TimeIsUp"));
+    }
     public void LevelComplete() {
+        endLevel = true;
         ShowedLevelCompleteS();
+        controlerTime.StopTime();
         ManagerInputs.DesactiveALLInput();
         PlayerWon();
 
@@ -87,7 +109,8 @@ public class ControlerGame : MonoBehaviour
 
         //Verificar se foi coletado todas a moedas
         if (checkedIfCollectAllCollectibles()) {
-            ManagerAtributes.cacheBonusPoint = collectibleInLevel * multiplicadorDeBonus;
+            //ManagerAtributes.cacheBonusPoint = collectibleInLevel * ManagerAtributes.multiplierBonus;
+            ManagerAtributes.cacheBonusPoint = ManagerAtributes.cachePoints * ManagerAtributes.multiplierBonus;
         }
         StartCoroutine(TradeScene("Load"));
     }
@@ -99,7 +122,13 @@ public class ControlerGame : MonoBehaviour
         }else if (scene == "Load") {
             ManagerScenes.SceneToLoadScreen();
         }
-        else {
+        else if (scene == "TimeIsUp") {
+            if(ManagerAtributes.life <= 0) {
+                ResetedActionInInfoScreen();
+                GameOver();
+            }    
+            else ManagerScenes.RestartLevel();
+        }else {
             Debug.LogError("Scene \"" + scene + "\" not found");
         }
     }
@@ -118,11 +147,21 @@ public class ControlerGame : MonoBehaviour
         if(points < 0) points = 0;
         if(UpdatedPoints != null) UpdatedPoints(points);
     }
+    public void OnUpdatedLifeInGame(int value) {
+        ManagerAtributes.life += value;
+        UpdatedLife();
+    }
     public void OnToachedInGoalSign(){
         LevelComplete();
     }
-    public void OnPlayerLostAllLifes() {
-        GameOver();
+    public void OnPlayerLostLife() {
+        ManagerAtributes.life--;
+        UpdatedLife();
+        controlerTime.StopTime();
+        if(ManagerAtributes.life <= 0) GameOver();
+    }
+    public void OnRespawnPlayer() {
+        controlerTime.PlayTime();
     }
     #endregion
 

@@ -302,8 +302,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -684,6 +684,7 @@ GameObject:
   - component: {fileID: 1852532903008551166}
   - component: {fileID: 6056119856121362043}
   - component: {fileID: 6534199900250736722}
+  - component: {fileID: 5223656835528107543}
   m_Layer: 5
   m_Name: CanvasGame
   m_TagString: Untagged
@@ -815,6 +816,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textCamp: {fileID: 4943627164288213386}
+--- !u!114 &5223656835528107543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6385644120080710908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a440362a6380cef48bed6b6c80d57c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeText: {fileID: 535130172875195785}
 --- !u!1 &6747337893242396365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,7 +1072,7 @@ GameObject:
   - component: {fileID: 6613296645533207447}
   - component: {fileID: 535130172875195785}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: LifeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

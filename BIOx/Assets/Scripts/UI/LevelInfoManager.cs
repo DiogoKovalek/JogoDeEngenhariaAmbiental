@@ -25,7 +25,7 @@ public class LevelInfoManager : MonoBehaviour
     private float timeDeleyLerp = 0.01f;
 
 
-    private Color corBranca = Color.white;
+    private Color corPreta = Color.black;
     private Color corVermelha = new Color32(234, 50, 60, 255);
     private Color corVerde = new Color32(211, 252, 126, 255);
     /*
@@ -60,7 +60,7 @@ public class LevelInfoManager : MonoBehaviour
         StartCoroutine(lerpAlpha(-1));
 
         text.gameObject.SetActive(true);
-        text.color = corBranca;
+        text.color = corPreta;
         text.text = "Level " + level;
         yield return new WaitForSeconds(timeShowText);
 
@@ -69,7 +69,12 @@ public class LevelInfoManager : MonoBehaviour
     }
     public void OnShowGameOverScreen() {
         if (actionLerp == null) {
-                actionLerp = StartCoroutine(coroutineShowGameOverScreen());
+            actionLerp = StartCoroutine(coroutineShowGameOverScreen());
+        }
+    }
+    public void OnShowTimeOverScreen() {
+        if(actionLerp == null) {
+            actionLerp = StartCoroutine(coroutineShowTimeOverScreen());
         }
     }
     private IEnumerator coroutineShowGameOverScreen() {
@@ -81,6 +86,17 @@ public class LevelInfoManager : MonoBehaviour
         text.gameObject.SetActive(true);
         text.color = corVermelha;
         text.text = "GAME OVER";
+        yield return null;
+    }
+    private IEnumerator coroutineShowTimeOverScreen() {
+        blackScreen.gameObject.SetActive(true);
+        Color cor = blackScreen.color;
+        cor.a = 0.5f;
+        blackScreen.color = cor;
+
+        text.gameObject.SetActive(true);
+        text.color = corVermelha;
+        text.text = "TIME IS UP";
         yield return null;
     }
     public void OnShowLevelCompleteScreen() {
@@ -112,6 +128,9 @@ public class LevelInfoManager : MonoBehaviour
             blackScreen.color = cor;
             yield return new WaitForSeconds(timeDeleyLerp);
         }
+        actionLerp = null;
+    }
+    public void OnResetActionLerp() {
         actionLerp = null;
     }
 }

@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2941972758745419712
 Transform:
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1795622833
-  m_SortingLayer: 2
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 882743173, guid: 500b38c9a1dc96140b27b876aada7514, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &3880020245366737711
 Animator:
   serializedVersion: 5
@@ -169,6 +169,10 @@ PrefabInstance:
     - target: {fileID: 2302448667646328729, guid: d5cccdd9c8e5abc4eac88d2457422e2a, type: 3}
       propertyPath: m_Name
       value: Fertilizer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2302448667646328729, guid: d5cccdd9c8e5abc4eac88d2457422e2a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6069608051045928513, guid: d5cccdd9c8e5abc4eac88d2457422e2a, type: 3}
       propertyPath: m_LocalPosition.x

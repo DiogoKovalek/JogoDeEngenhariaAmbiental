@@ -13,11 +13,13 @@ public static class ManagerAtributes
     cache
     ==============================================
     */
-
+    //Const
+    private const int initialLife = 3;
+    public const int multiplierBonus = 2;
     // In Game
     public static int points = 0;
     public static int level = 1;
-    public static int life = 3;
+    public static int life = initialLife;
     
     // In Level
     public static int cachePoints = 0;
@@ -29,7 +31,7 @@ public static class ManagerAtributes
     public static void ResetAtributesForGame() {
         points = 0;
         level = 1;
-        life = 3;
+        life = initialLife;
         ResetCaheAtributes();
     }
 

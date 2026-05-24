@@ -30,7 +30,8 @@ public class ManagerCollideTriggers : MonoBehaviour
 
     //Tag
     private const String tagGoalSign = "GoalSign";
-    private const String tagBridge = "Bridge";
+    private const String tagSpike = "Spike";
+    //private const String tagBridge = "Bridge";
     void Awake() {
         player = GetComponent<Player>();  
         circleCollision = GetComponent<CircleCollider2D>();
@@ -58,23 +59,32 @@ public class ManagerCollideTriggers : MonoBehaviour
         }
         else if(collision.CompareTag(tagGoalSign)){ //Goal Sign
             player.ToachGoalSign();
+        }
+        /*
         }else if (collision.CompareTag(tagBridge)){
             Debug.Log("Ponte");
             Physics2D.IgnoreLayerCollision(layerPlayer, layerWater, true);
         }
+        */
     }
     
+    /*
     void OnTriggerExit2D(Collider2D collision){
         if (collision.CompareTag(tagBridge)){
             Debug.Log("Saiu da ponte");
             Physics2D.IgnoreLayerCollision(layerPlayer, layerWater, false);
         }
     }
+    */
     
     private void collideEnemy(Collider2D collision) {
-        Enemy enemy = collision.GetComponent<Enemy>();
-        Vector2 diretion = (transform.position - collision.gameObject.transform.position).normalized;
-        player.TakeDamage(enemy.GetDamage(), enemy.GetSpeed(), diretion);
+        if (collision.CompareTag(tagSpike)) {
+            player.TakeDamage(0,0,Vector2.zero);
+        }else{
+            Enemy enemy = collision.GetComponent<Enemy>();
+            Vector2 diretion = (transform.position - collision.gameObject.transform.position).normalized;
+            player.TakeDamage(enemy.GetDamage(), enemy.GetSpeed(), diretion);
+        }
 
         /* Para se caso exista inimigos que facam algo espeifio
         IEnemy ene = collision?.GetComponente<IEnemy>();

@@ -18,23 +18,27 @@ public class ItemBehaviour : MonoBehaviour
     ==============================================================
     */
     private BoxCollider2D boxCollider;
+    private SpriteRenderer sprRen;
     private float timeForActiveItem = 0.3f;
     private Transform oldParent; // Para voltar a sua lista de origem
     [SerializeField] private TypeItem typeItem;
     [SerializeField] private GameObject shadown;
     void Awake() {
         boxCollider = GetComponent<BoxCollider2D>();
+        sprRen = GetComponent<SpriteRenderer>();
+        oldParent = this.transform.parent;
     }
     public void GetThisItem(PlayerManageItem playerMI) {
         shadown?.SetActive(false);
         boxCollider.enabled = false;
-        oldParent = this.transform.parent;
+        sprRen.sortingLayerName = "WalkInBehind";
         playerMI.GetItem(transform);
     }
     public void DropThisItem() {
         shadown?.SetActive(true);
         transform.SetParent(oldParent);
         StartCoroutine(delayActiveItem());
+        sprRen.sortingLayerName = "Foreground";
     }
     public TypeItem GetTypeItem() {
         return typeItem;

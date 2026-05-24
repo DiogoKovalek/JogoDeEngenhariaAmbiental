@@ -45,4 +45,6 @@ public class EnemyMoveInTarget : MonoBehaviour
     public void AtributeTarget(Vector2 target) {
         this.target = target;
     }
+
+    
 }

@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3496365157880489772
 Transform:
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1795622833
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -557757962, guid: bdaa4aed81c9c784781ce7f590600f0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!70 &5262356105915635572
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -173,6 +173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractiveBiodigestor
       objectReference: {fileID: 0}
+    - target: {fileID: 478228854175235668, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3567565906008258730, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
@@ -212,6 +216,14 @@ PrefabInstance:
     - target: {fileID: 3567565906008258730, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621967666061516324, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621967666061516324, guid: 534ff17c209dc1b4580817dd62b8c4ca, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1709625973
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -13,6 +13,7 @@ public class EventManager : MonoBehaviour
     [SerializeField] private GameObject UI;
 
     private PointsTextManager pointsManager;
+    private LifeCountManager lifeManager;
     private StopwatchManager stopwatchManager;
     private LevelInfoManager levelInfoManager;
     private ControlerGame controlerGame;
@@ -34,6 +35,7 @@ public class EventManager : MonoBehaviour
             UI = GameObject.Find("Canvas");
         }
         pointsManager = UI.GetComponent<PointsTextManager>();
+        lifeManager = UI.GetComponent<LifeCountManager>();
         stopwatchManager = UI.GetComponent<StopwatchManager>();
         levelInfoManager = UI.GetComponent<LevelInfoManager>();
         
@@ -42,17 +44,23 @@ public class EventManager : MonoBehaviour
 
     private void startEvents(){
         player.UpdatedPoint += controlerGame.OnUpdatedPointInGame;
+        player.UpdateLife += controlerGame.OnUpdatedLifeInGame;
         player.ToachedGoalSign += controlerGame.OnToachedInGoalSign;
-        player.playerLostedAllLife += controlerGame.OnPlayerLostAllLifes;
+        player.PlayerLostedLife += controlerGame.OnPlayerLostLife;
+        player.PlayerRespawnedPosition += controlerGame.OnRespawnPlayer;
         player.PlayedSFX += controlerSFX.OnPlaySFX;
 
         //Controler
         controlerGame.UpdatedPoints += pointsManager.OnUpdatePointsText;
+        controlerGame.UpdatedLife += lifeManager.OnUpdateTextLife;
         controlerGame.StartedGameS += levelInfoManager.OnStartGameScreen;
         controlerGame.ShowedGameOverS += levelInfoManager.OnShowGameOverScreen;
+        controlerGame.ShowedTimeOverS += levelInfoManager.OnShowTimeOverScreen;
         controlerGame.ShowedLevelCompleteS += levelInfoManager.OnShowLevelCompleteScreen;
+        controlerGame.ResetedActionInInfoScreen += levelInfoManager.OnResetActionLerp;
         controlerGame.PlayerLosted += player.OnPlayerLost;
         controlerGame.PlayerWon += player.OnPlayerWin;
+        controlerGame.PlayerTimed += player.OnTimeLostForPlayer;
         controlerTimerGame.UpdatedStopwatch += stopwatchManager.OnUpdateStopwatch;
     }
 }

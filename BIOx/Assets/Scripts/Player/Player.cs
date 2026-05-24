@@ -29,6 +29,7 @@ public class Player : MonoBehaviour {
     */
     private SpriteRenderer sprRen;
     private Animator anim;
+    private Transform sortingPivo;
 
     private bool isInvunerable = false;
     private bool isEndGame = false;
@@ -40,12 +41,16 @@ public class Player : MonoBehaviour {
     //Events =========================================================
     public delegate void UpdatedPointInGame(int value);
     public event UpdatedPointInGame UpdatedPoint;
+    public delegate void UpdatedLifeInGame(int value);
+    public event UpdatedLifeInGame UpdateLife;
     public delegate void PlayedSfx(SFXSound sound);
     public event PlayedSfx PlayedSFX;
     public delegate void ToachedInGoalSign();
     public event ToachedInGoalSign ToachedGoalSign;
-    public delegate void PlayerLostedAllLifes();
-    public event PlayerLostedAllLifes playerLostedAllLife;
+    public delegate void PlayerLostedLifes();
+    public event PlayerLostedLifes PlayerLostedLife;
+    public delegate void PlayerRespawned();
+    public event PlayerRespawned PlayerRespawnedPosition;
     //================================================================
 
     //Scripts ========================================================
@@ -84,13 +89,12 @@ public class Player : MonoBehaviour {
         StartCoroutine(blinkWhileInvunerable());
         playerParticle.startDamage();
         isInvunerable = true;
-        ManagerAtributes.life -= 1;
         yield return new WaitForSeconds(timeForDestroy);
-        if(ManagerAtributes.life < 0) {
-            playerLostedAllLife();
-        }else{
+        PlayerLostedLife();
+        if(ManagerAtributes.life > 0) {
             isInvunerable = false;
             transform.position = initialPos;
+            PlayerRespawnedPosition();
         }
         ManagerInputs.ActiveALLInput();
     }
@@ -108,6 +112,9 @@ public class Player : MonoBehaviour {
     #region For Controler
     public void UpdPointInControler(int value) {
         if(UpdatedPoint != null) UpdatedPoint(value);
+    }
+    public void UpdLifeInControler(int value) {
+        if(UpdateLife != null) UpdateLife(value);
     }
     public void ToachGoalSign(){
         if(ToachedGoalSign != null) ToachedGoalSign(); 
@@ -127,6 +134,9 @@ public class Player : MonoBehaviour {
         // Animacao de Ganhar
 
         isEndGame = true;
+    }
+    public void OnTimeLostForPlayer() {
+        isInvunerable = true;
     }
     #endregion
 
@@ -151,6 +161,9 @@ public class Player : MonoBehaviour {
     }
     public SpriteRenderer GetSpriteRenderer() {
         return sprRen;
+    }
+    public Transform GetSortingPivo() {
+        return sortingPivo;
     }
     #endregion
 }

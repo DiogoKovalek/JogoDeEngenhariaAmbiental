@@ -7,6 +7,8 @@ TagManager:
   - Coin
   - GoalSign
   - Bridge
+  - Heart
+  - Spike
   layers:
   - Default
   - TransparentFX
@@ -50,8 +52,8 @@ TagManager:
   - name: Grass
     uniqueID: 2173540643
     locked: 0
-  - name: Water
-    uniqueID: 3575887539
+  - name: WaterTiles
+    uniqueID: 3340313117
     locked: 0
   - name: WalkInFront
     uniqueID: 1709625973

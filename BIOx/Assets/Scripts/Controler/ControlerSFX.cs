@@ -13,6 +13,9 @@ public class ControlerSFX : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip SFXCoin;
 
+    void Start() {
+       audioSource.volume = GameManager.gameManager.Volume; 
+    }
     public void OnPlaySFX(SFXSound sound) {
         switch (sound) {
             case SFXSound.COIN:
@@ -23,6 +26,7 @@ public class ControlerSFX : MonoBehaviour
         }
     }
 }
+
 
 public enum SFXSound {
     COIN

@@ -14,7 +14,8 @@ public class SpawnerEnemyDirection : MonoBehaviour {
     [SerializeField] private Transform initialPoint;
     [SerializeField] private Transform finalPoint;
     [SerializeField] private GameObject objListForEnemys;
-    [SerializeField] private float speedSpawner;
+    [SerializeField] private float speedSpawner = 3;
+    [SerializeField] private float speedEnemy = 4;
 
     private Vector2 direction;
     void Start() {
@@ -26,10 +27,13 @@ public class SpawnerEnemyDirection : MonoBehaviour {
         GameObject enemy = GetEnemyInList();
         if(enemy != null) { // Existe um para ativar
             enemy.transform.position = initialPoint.transform.position;
+            enemy.GetComponent<Enemy>().SetSpeed(speedEnemy);
             enemy.SetActive(true);
+
         }
         else { // Deve-se criar um novo
             enemy = Instantiate(enemyPrefab.gameObject, initialPoint.position, enemyPrefab.transform.rotation, objListForEnemys.transform);
+            enemy.GetComponent<Enemy>().SetSpeed(speedEnemy);
             enemy.GetComponent<EnemyMoveInTarget>().AtributeTarget(finalPoint.position);
         }
         yield return new WaitForSeconds(speedSpawner);
