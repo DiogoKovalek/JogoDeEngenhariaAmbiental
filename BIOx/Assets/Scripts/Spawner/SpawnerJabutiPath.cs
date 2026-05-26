@@ -42,7 +42,7 @@ public class SpawnerJabutiPath : MonoBehaviour
 
             jabuti.GetComponent<Transform>().position = near;
             jabuti.AtributeControler(this);
-            index++;
+            index = index + 1 == points.Length ? 0 : index + 1;
             jabuti.initAtributesForMove(points[index].position, index);
         }
     }

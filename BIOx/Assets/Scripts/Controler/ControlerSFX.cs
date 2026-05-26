@@ -12,6 +12,8 @@ public class ControlerSFX : MonoBehaviour
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip SFXCoin;
+    [SerializeField] private AudioClip SFXLifeUp;
+    [SerializeField] private AudioClip SFXDamage;
 
     void Start() {
        audioSource.volume = GameManager.gameManager.Volume; 
@@ -22,6 +24,11 @@ public class ControlerSFX : MonoBehaviour
                 audioSource.PlayOneShot(SFXCoin);
                 break;
             default:
+            case SFXSound.LIFE:
+                audioSource.PlayOneShot(SFXLifeUp);
+                break;
+            case SFXSound.DAMAGE:
+                audioSource.PlayOneShot(SFXDamage);
                 break;
         }
     }
@@ -29,5 +36,7 @@ public class ControlerSFX : MonoBehaviour
 
 
 public enum SFXSound {
-    COIN
+    COIN,
+    LIFE,
+    DAMAGE
 }

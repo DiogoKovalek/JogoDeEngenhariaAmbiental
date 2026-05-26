@@ -5,8 +5,8 @@ using UnityEngine.Rendering.Universal.Internal;
 
 public class ControlerTimerGame : MonoBehaviour
 {
-    [SerializeField] private const byte timeStartGame = 100;
-    private byte time = timeStartGame;
+    [SerializeField] private const short timeStartGame = 150;
+    private short time = timeStartGame;
 
     private ControlerGame controlerGame;
 

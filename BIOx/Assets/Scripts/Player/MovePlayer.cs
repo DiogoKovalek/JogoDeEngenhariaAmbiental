@@ -25,7 +25,7 @@ public class MovePlayer : MonoBehaviour {
     private Vector2 vectorMovement;
     private float distPoint = 0;
     private static readonly float[] speedVariation = { 0.0f, 3f, 8f };
-    private static readonly float[] distanceVariation = { 0.3f, 2.3f };
+    private static readonly float[] distanceVariation = { 0.3f, 2f };
     private static readonly float variationSpeed = 10f;
     private static readonly float speedForSmoke = speedVariation[1] + 4;
 

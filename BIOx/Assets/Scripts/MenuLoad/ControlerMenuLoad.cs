@@ -22,6 +22,13 @@ public class ControlerMenuLoad : MonoBehaviour
     [SerializeField] private GameObject PointsTextBonus;
     [SerializeField] private GameObject ButtonNextLevel;
 
+    [Header("Music")]
+    [SerializeField] private AudioSource musicSource;
+
+    [Header("SFX")]
+    [SerializeField] private AudioSource audioSFX;
+    [SerializeField] private AudioClip SFXPoints;
+
     private TextMeshProUGUI textPointsText;
     private TextMeshProUGUI textPointsBonusText;
     private int loops = 75;
@@ -35,6 +42,8 @@ public class ControlerMenuLoad : MonoBehaviour
         textPointsText = PointsText.GetComponent<TextMeshProUGUI>();
         textPointsBonusText = PointsTextBonus.GetComponent<TextMeshProUGUI>();
         StartCoroutine(view());
+        musicSource.volume = GameManager.gameManager.Volume;
+        audioSFX.volume = GameManager.gameManager.Volume;
     }
 
     private IEnumerator view() {
@@ -53,6 +62,7 @@ public class ControlerMenuLoad : MonoBehaviour
         while(countPoints < sumPoints - sumPerWhile) {
             countPoints += sumPerWhile;
             textPointsText.text = countPoints.ToString("D6");
+            audioSFX.PlayOneShot(SFXPoints);
             yield return new WaitForSeconds(0.01f);
         }
         
@@ -71,6 +81,7 @@ public class ControlerMenuLoad : MonoBehaviour
             while (countPoints < sumPoints - sumPerWhile) {
                 countPoints += sumPerWhile;
                 textPointsText.text = countPoints.ToString("D6");
+                audioSFX.PlayOneShot(SFXPoints);
                 yield return new WaitForSeconds(0.01f);
             }
 

@@ -47,6 +47,7 @@ public class ManagerCollideTriggers : MonoBehaviour
         else if(collision.gameObject.layer == layerCollectible) { // Collectable
             collision.GetComponent<ICollectible>().communicateWithPlayer(playerCC);
             if(collision.transform.CompareTag("Coin")) player.PlaySFX(SFXSound.COIN);
+            if(collision.transform.CompareTag("Heart")) player.PlaySFX(SFXSound.LIFE);
             Destroy(collision.gameObject);
         }
         else if(collision.gameObject.layer == layerItem) { // Item
@@ -56,6 +57,7 @@ public class ManagerCollideTriggers : MonoBehaviour
         }
         else if(collision.gameObject.layer == layerEnemy) { // Enemy
             collideEnemy(collision);
+            player.PlaySFX(SFXSound.DAMAGE);
         }
         else if(collision.CompareTag(tagGoalSign)){ //Goal Sign
             player.ToachGoalSign();

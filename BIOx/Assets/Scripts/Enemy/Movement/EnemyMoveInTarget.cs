@@ -31,8 +31,8 @@ public class EnemyMoveInTarget : MonoBehaviour
     private void initAnimation() {
         if(anim != null) {
             Vector2 diretion = (target - (Vector2) transform.position).normalized;
-            anim.SetFloat("MoveX", diretion.x);
-            anim.SetFloat("MoveY", diretion.y);
+            anim?.SetFloat("MoveX", diretion.x);
+            anim?.SetFloat("MoveY", diretion.y);
         }
     }
 

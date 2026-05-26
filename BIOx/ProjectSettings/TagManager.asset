@@ -52,8 +52,11 @@ TagManager:
   - name: Grass
     uniqueID: 2173540643
     locked: 0
-  - name: WaterTiles
+  - name: WaterTile
     uniqueID: 3340313117
+    locked: 0
+  - name: Molhado
+    uniqueID: 2888121959
     locked: 0
   - name: WalkInFront
     uniqueID: 1709625973

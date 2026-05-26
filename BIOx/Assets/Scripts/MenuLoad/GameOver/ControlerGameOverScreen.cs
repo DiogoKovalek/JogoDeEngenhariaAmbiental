@@ -18,7 +18,15 @@ public class ControlerGameOverScreen : MonoBehaviour
     [SerializeField] private GameObject PointsText;
     [SerializeField] private GameObject CliqueParaVoltar;
     [SerializeField] private GameObject ButtonBackHome;
-    
+    [SerializeField] private GameObject NewRecord;
+    [SerializeField] private GameObject PlacarPontos;
+    [SerializeField] private GameObject NovosJogosEmBreve;
+    [Header("Music")]
+    [SerializeField] private AudioSource musicSource;
+    [Header("SFX")]
+    [SerializeField] private AudioSource audioSFX;
+    [SerializeField] private AudioClip SFXPoints;
+     
     private TextMeshProUGUI textPoints;
     private int loops = 75;
 
@@ -27,6 +35,8 @@ public class ControlerGameOverScreen : MonoBehaviour
 
     void Start() {
         textPoints = PointsText.GetComponent<TextMeshProUGUI>();
+        musicSource.volume = GameManager.gameManager.Volume;
+        audioSFX.volume = GameManager.gameManager.Volume;
         StartCoroutine(view());
     }
     private IEnumerator view() {
@@ -43,6 +53,7 @@ public class ControlerGameOverScreen : MonoBehaviour
         while(countPoints < totalPoints - sumPerWhile) {
             countPoints += sumPerWhile;
             textPoints.text = countPoints.ToString("D6");
+            audioSFX.PlayOneShot(SFXPoints);
             yield return new WaitForSeconds(0.01f);
         }
 
