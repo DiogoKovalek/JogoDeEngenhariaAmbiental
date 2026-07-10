@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
     public float Volume;
 
     [Header("Points Placar")]
-    public int[] pointsPlacar = new int[10];
+    public int[] pointsPlacar = new int[8];
 
     #region Class Serializable
     [System.Serializable]
@@ -64,6 +64,8 @@ public class GameManager : MonoBehaviour {
                 aux[i] = pointsPlacar[i - 1];
             }
         }
+        pointsPlacar = aux;
+        SaveScore();
     }
     #endregion
 
@@ -91,7 +93,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void SaveScore() {
-        String pathScore = Application.persistentDataPath + "Scores/scores.json";
+        String pathScore = Application.persistentDataPath + "/scores.json";
 
         ScoreData scoreData = new ScoreData {
             pointsPlacar = this.pointsPlacar
@@ -102,7 +104,7 @@ public class GameManager : MonoBehaviour {
         File.WriteAllText(pathScore, json);
     }
     public void LoadScore() {
-        String pathScore = Application.persistentDataPath + "Scores/scores.json";
+        String pathScore = Application.persistentDataPath + "/scores.json";
 
         if (File.Exists(pathScore)) {
             String json = File.ReadAllText(pathScore);

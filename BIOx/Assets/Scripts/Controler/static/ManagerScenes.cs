@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public static class ManagerScenes
 {
-    private static String[] SceneLevels = {"W1L1", "W1L2", "W1L3","W1L4","W1L5","W1L6"};
+    private static String[] SceneLevels = {"W1L1", "W1L2", "W1L3","W1L4","W1L5","W1L6","W1L7","W1L8","W1L9","W1L10"};
     private static String SceneMenuInicial = "MenuInicial";
     private static String SceneLoadScreen = "LoadScreen";
     private static String SceneGameOver = "GameOverScreen";

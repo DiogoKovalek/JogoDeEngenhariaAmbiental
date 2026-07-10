@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -28,13 +29,16 @@ public class ControlerGameOverScreen : MonoBehaviour
     [SerializeField] private AudioClip SFXPoints;
      
     private TextMeshProUGUI textPoints;
+    private TextMeshProUGUI textPlacar;
     private int loops = 75;
+
 
     private int totalPoints = ManagerAtributes.points;
     private int countPoints = 0;
 
     void Start() {
         textPoints = PointsText.GetComponent<TextMeshProUGUI>();
+        textPlacar = PlacarPontos.GetComponent<TextMeshProUGUI>();
         musicSource.volume = GameManager.gameManager.Volume;
         audioSFX.volume = GameManager.gameManager.Volume;
         StartCoroutine(view());
@@ -61,6 +65,38 @@ public class ControlerGameOverScreen : MonoBehaviour
         textPoints.text = countPoints.ToString("D6");
         yield return new WaitForSeconds(1f);
 
+
+        SeusPontos.SetActive(false);
+        PointsText.SetActive(false);
+
+        // Placar
+
+        //Novo recorde
+        if (GameManager.gameManager.checkIfNewRecord(totalPoints)) {
+            NewRecord.SetActive(true);
+            GameManager.gameManager.addNewRecord(totalPoints);
+            yield return new WaitForSeconds(2f);
+            NewRecord.SetActive(false);
+        }
+
+        //Mostrar placar
+        int[] placar = GameManager.gameManager.pointsPlacar;
+        String aux = "";
+        textPlacar.text = "";
+
+        PlacarPontos.SetActive(true);
+        for(int i = 0; i < placar.Length; i++) {
+            aux = (i+1) + " - " + placar[i].ToString("D6");
+            if(i < placar.Length - 1) aux = aux + "\n";
+
+            //Imprimir
+            yield return new WaitForSeconds(0.5f);
+            textPlacar.text = textPlacar.text + aux;
+        }
+
+
+
+        NovosJogosEmBreve.SetActive(true);
         CliqueParaVoltar.SetActive(true);
         ButtonBackHome.SetActive(true);
     }
