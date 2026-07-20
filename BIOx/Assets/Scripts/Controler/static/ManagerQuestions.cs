@@ -63,7 +63,6 @@ public static class ManagerQuestions {
     }
     public static bool CheckeedIfCorrect(string res) {
         bool isCorrect = activeQuest.IsCorrect(res);
-        activeQuest = null;
         return isCorrect;
     }
 
